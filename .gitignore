@@ -1,2 +1,9 @@
-node_modules
-dist
+# OS Specific
+.DS_Store
+
+# Build output
+dist/
+
+# Dependencies
+node_modules/
+

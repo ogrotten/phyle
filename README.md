@@ -1,47 +1,57 @@
-# Svelte + Vite
+# Svelte + Vite + Electron
 
-This template should help get you started developing with Svelte in Vite.
+Clean example that combines [svelte vite](https://vitejs.dev/) and [electron](https://www.electronjs.org/).
 
-## Recommended IDE Setup
+Start with: `npm start`
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+> Vite builds the renderer and watches for changes. Meanwhile, electron starts up and loads the index.html file built.
 
-## Need an official Svelte framework?
+Build with `npm run build`
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+> Vite statically builds the renderer into `src/renderer/dist`, then electron-builder packages up the build into an executable.
 
-## Technical considerations
+Enjoy!
 
-**Why use this over SvelteKit?**
+## Structure
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+* `src/index.js` - Electron entrypoint for app
+* `src/renderer/index.html` - Renderer entrypoint for electron
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+## Reproduction Steps
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+To redo this repo:
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `checkJs` in the JS template?**
-
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+1. `npm init vite@latest`, select svelte.
+2. Copy `public`, `src`, `index.html` to `src/renderer`. You can remote the fluff like `.vscode`.
+3. Add more dependencies `npm install --save-dev electron electron-builder concurrently`
+4. Edit `package.json`:
+    * delete line with `"type": "module",`
+    * add `"main": "src/index.js",`
+    * add scripts:
+      ```json
+      "scripts": {
+        "start": "NODE_ENV=development concurrently 'npm run web:watch' 'sleep 1 && npm run electron:start'",
+        "web:watch": "vite",
+        "electron:start": "electron src",
+        "build": "vite build && electron-builder"
+      }
+      ```
+    * add build options for electron-builder:
+      ```json
+      "build": {
+        "files": [
+          "src/**/*"
+        ]
+      }
+      ```
+4. Create `src/index.js`. Follow getting started guide in [Electron](https://www.electronjs.org/docs/latest/tutorial/quick-start) and when creating the window, use something like this:
+    ```js
+    if (process.env.NODE_ENV !== 'development') {
+      // Load production build
+      win.loadFile(`${__dirname}/renderer/dist/index.html`)
+    } else {
+      // Load vite dev server page 
+      console.log('Development mode')
+      win.loadURL('http://localhost:3000/')
+    }
+    ```

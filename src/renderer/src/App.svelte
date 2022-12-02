@@ -15,22 +15,38 @@
 	}
 </script>
 
-<h1>{directory}</h1>
+<div data-theme="lofi" class="card w-96 bg-base-100 shadow-xl">
+	<h1>{directory}</h1>
 
-{#await filesPromise then files}
-	{#if !isRoot}
-		<div><button on:click={() => navigateUp()}>..</button></div>
-	{/if}
-	{#each files as entry}
-		{#if entry.type === 'directory'}
+	{#await filesPromise then files}
+		{#if !isRoot}
 			<div>
-				<button on:click={() => navigate(entry.name)}>{entry.name}</button>
+				<button class="btn btn-primary" on:click={() => navigateUp()}>..</button
+				>
 			</div>
-		{:else}
-			<div>{entry.name}</div>
 		{/if}
-	{/each}
-{/await}
+
+		<table class="table">
+			{#each files as entry}
+				{#if entry.type === 'directory'}
+					<tr>
+						<td>
+							<button class="btn " on:click={() => navigate(entry.name)}>
+								{entry.name}
+							</button>
+						</td>
+					</tr>
+				{:else}
+					<tr>
+						<td>
+							<p>{entry.name}</p>
+						</td>
+					</tr>
+				{/if}
+			{/each}
+		</table>
+	{/await}
+</div>
 
 <style>
 	:global(body) {

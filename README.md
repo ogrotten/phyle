@@ -1,8 +1,8 @@
 # Docs that matter
 
-    * https://github.com/tmotagam/sqlite-electron
-    * https://www.electronjs.org/docs/latest/api/ipc-main
-    * https://daisyui.com/components/
+* https://github.com/tmotagam/sqlite-electron
+* https://www.electronjs.org/docs/latest/api/ipc-main
+* https://daisyui.com/components/
 
 ---
 

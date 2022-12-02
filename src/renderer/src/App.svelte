@@ -10,9 +10,8 @@
 	<Counter />
 
 	<p>
-		Visit
-		<a href="https://svelte.dev">svelte.dev</a>
-		to learn how to build Svelte apps.
+		Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
+		apps.
 	</p>
 
 	<p>

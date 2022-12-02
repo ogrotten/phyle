@@ -5,12 +5,17 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte()],
-  resolve: {
-    alias: {
-      '@': path.resolve('src/renderer/src'),
-    },
-  },
-  root: path.resolve(process.cwd(), 'src/renderer'),
-  base: './',
+	plugins: [svelte()],
+	resolve: {
+		alias: {
+			'@': path.resolve('src/renderer/src'),
+		},
+	},
+	root: path.resolve(process.cwd(), 'src/renderer'),
+	base: './',
+	// build: {
+	// 	rollupOptions: {
+	// 		external: ['module'],
+	// 	},
+	// },
 })

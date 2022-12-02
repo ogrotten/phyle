@@ -8,7 +8,7 @@
 
 ---
 
-## Svelte + Vite + Electron
+# Svelte + Vite + Electron
 
 Clean example that combines [svelte vite](https://vitejs.dev/) and [electron](https://www.electronjs.org/).
 
@@ -22,12 +22,12 @@ Build with `npm run build`
 
 Enjoy!
 
-### Structure
+## Structure
 
 - `src/index.js` - Electron entrypoint for app
 - `src/renderer/index.html` - Renderer entrypoint for electron
 
-### Reproduction Steps
+## Reproduction Steps
 
 To redo this repo:
 

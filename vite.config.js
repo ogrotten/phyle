@@ -13,9 +13,4 @@ export default defineConfig({
 	},
 	root: path.resolve(process.cwd(), 'src/renderer'),
 	base: './',
-	// build: {
-	// 	rollupOptions: {
-	// 		external: ['module'],
-	// 	},
-	// },
 })

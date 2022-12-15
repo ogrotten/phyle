@@ -1,51 +1,21 @@
 <script>
-	let directory = window.api.currentDirectory()
-	$: filesPromise = window.api.directoryContents(directory)
-	$: isRoot = directory === '/'
+	import { onMount } from 'svelte'
+	import Filebrowse from './components/Filebrowse.svelte'
 
-	function navigate(path) {
-		if (directory === '/') {
-			directory = '/' + path
-		} else {
-			directory += '/' + path
-		}
-	}
-	function navigateUp() {
-		directory = directory.split('/').slice(0, -1).join('/') || '/'
-	}
+	// import { fs } from 'fs'
+
+	// onMount(async () => {
+	// 	try {
+	// 		const files = await fs.readdir(path)
+	// 		for (const file of files) console.log(file)
+	// 	} catch (err) {
+	// 		console.error(err)
+	// 	}
+	// })
 </script>
 
-<div data-theme="lofi" class="card w-96 bg-base-100 shadow-xl">
-	<h1>{directory}</h1>
-
-	{#await filesPromise then files}
-		{#if !isRoot}
-			<div>
-				<button class="btn btn-primary" on:click={() => navigateUp()}>..</button
-				>
-			</div>
-		{/if}
-
-		<table class="table">
-			{#each files as entry}
-				{#if entry.type === 'directory'}
-					<tr>
-						<td>
-							<button class="btn " on:click={() => navigate(entry.name)}>
-								{entry.name}
-							</button>
-						</td>
-					</tr>
-				{:else}
-					<tr>
-						<td>
-							<p>{entry.name}</p>
-						</td>
-					</tr>
-				{/if}
-			{/each}
-		</table>
-	{/await}
+<div data-theme="lofi" class=" bg-emerald-200">
+	<Filebrowse />
 </div>
 
 <style>

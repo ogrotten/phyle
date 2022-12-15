@@ -14,6 +14,7 @@
 		"concurrently": "^7.0.0",
 		"cross-env": "^7.0.3",
 		"daisyui": "^2.42.1",
+		"directory-tree": "^3.4.0",
 		"electron": "^19.0.6",
 		"electron-builder": "^23.0.2",
 		"postcss": "^8.4.14",

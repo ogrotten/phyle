@@ -1,4 +1,6 @@
 <script>
+	import fs from 'fs'
+  import { claim_svg_element } from 'svelte/internal'
 	let directory = window.api.currentDirectory()
 
 	$: filesPromise = window.api.directoryContents(directory)
@@ -15,12 +17,14 @@
 		directory = directory.split('/').slice(0, -1).join('/') || '/'
 	}
 
-	$: directory = directory.replaceAll("\\", "/")
+	$: directory = directory.replaceAll('\\', '/')
 
-	const search = async () => {
-		let jeff = await window.showDirectoryPicker()
+	const search = async () => {	
+		let jeff = await window.api.getTree(directory)
 		console.log(jeff)
 	}
+
+
 </script>
 
 <div class="bg-base-100 card m-4 p-4 h-96">

@@ -1,16 +1,22 @@
 let { readdir } = require('fs/promises')
 let { contextBridge } = require('electron')
+const dirTree = require("directory-tree");
 
-let currentDirectory = () => {
+const currentDirectory = () => {
 	return process.cwd()
 }
 
-let directoryContents = async (path) => {
+const directoryContents = async (path) => {
 	let results = await readdir(path, { withFileTypes: true })
+	console.log("results", results)
 	return results.map((entry) => ({
 		name: entry.name,
 		type: entry.isDirectory() ? 'directory' : 'file',
 	}))
 }
 
-contextBridge.exposeInMainWorld('api', { directoryContents, currentDirectory })
+const getTree = async (path) => {
+	return dirTree(path)
+}
+
+contextBridge.exposeInMainWorld('api', { directoryContents, currentDirectory, getTree })

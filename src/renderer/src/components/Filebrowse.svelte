@@ -15,27 +15,33 @@
 	}
 </script>
 
-<div class="card w-96 bg-base-100 shadow-xl p-4">
-	<div class="w-full  border-b border-grey-200 ">
+<div class="bg-base-100 card m-4 p-4 h-[50%]">
+	<div class="w-full border-b border-grey-200 pb-2 mb-2">
 		<p class="">{directory}</p>
 	</div>
 
 	{#await filesPromise then files}
-		{@const filelist = files.sort((a, b) => a.type.localeCompare(b.type))}
+		<!-- {@const filelist = files.sort((a, b) => a.type.localeCompare(b.type))} -->
 		<!-- {@debug filelist} -->
 		{#if !isRoot}
-			<div>
-				<a href={''} class="dir" on:click={() => navigateUp()}>..</a>
-			</div>
+			<span
+				on:click={() => navigateUp()}
+				class="cursor-pointer hover:bg-gray-100 p-1 w-full"
+			>
+				🔼
+			</span>
 		{/if}
 
-		<ul class="">
-			{#each filelist as entry}
+		<ul class="h-full overflow-auto">
+			{#each files.sort((a, b) => a.type.localeCompare(b.type)) as entry}
 				{#if entry.type === 'directory'}
-					<li class=" hover:bg-gray-100 p-1 w-full">
-						<a href={''} class="font-semibold text-gray-600" on:click={() => navigate(entry.name)}>
+					<li
+						class="cursor-pointer hover:bg-gray-100 p-1 w-full"
+						on:click={() => navigate(entry.name)}
+					>
+						<span href={''} class="font-semibold text-gray-600">
 							./{entry.name}
-						</a>
+						</span>
 					</li>
 				{:else}
 					<li>
@@ -48,7 +54,7 @@
 </div>
 
 <style lang="postcss">
-	li{
+	li {
 		@apply m-0;
 	}
 	.dir {

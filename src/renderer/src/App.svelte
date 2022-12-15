@@ -14,8 +14,8 @@
 	// })
 </script>
 
-<div data-theme="lofi" class=" bg-emerald-200">
-	<Filebrowse />
+<div data-theme="lofi" class="bg-emerald-200 w-full h-full p-4">
+		<Filebrowse />
 </div>
 
 <style>

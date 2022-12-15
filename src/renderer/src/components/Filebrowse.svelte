@@ -1,6 +1,6 @@
 <script>
 	import fs from 'fs'
-  import { claim_svg_element } from 'svelte/internal'
+	import { claim_svg_element } from 'svelte/internal'
 	let directory = window.api.currentDirectory()
 
 	$: filesPromise = window.api.directoryContents(directory)
@@ -19,11 +19,13 @@
 
 	$: directory = directory.replaceAll('\\', '/')
 
-	const search = async () => {	
-		let jeff = await window.api.getTree(directory)
-		console.log(jeff)
-	}
+	const search = async () => {
+		// let bill = await window.showDirectoryPicker()
+		// console.log("bill",bill)
 
+		let jeff = await window.api.getTree(directory)
+		console.log("jeff",jeff)
+	}
 
 </script>
 
@@ -33,8 +35,6 @@
 	</div>
 
 	{#await filesPromise then files}
-		<!-- {@const filelist = files.sort((a, b) => a.type.localeCompare(b.type))} -->
-		<!-- {@debug filelist} -->
 		{#if !isRoot}
 			<span
 				on:click={() => navigateUp()}
@@ -65,14 +65,16 @@
 	{/await}
 </div>
 <div class="flex justify-end">
-	<button class="btn btn-primary btn-sm" on:click={search}>Search</button>
+	<button class="btn btn-primary btn-sm" on:click={search}
+		>Choose Directory</button
+	>
 </div>
 
 <style lang="postcss">
-	li {
+	/* li {
 		@apply m-0;
 	}
 	.dir {
 		@apply font-semibold text-gray-600;
-	}
+	} */
 </style>

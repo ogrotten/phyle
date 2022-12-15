@@ -1,10 +1,8 @@
 <script>
-	import fs from 'fs'
-	import { claim_svg_element } from 'svelte/internal'
-	let directory = window.api.currentDirectory()
+	import { onMount } from 'svelte'
 
-	$: filesPromise = window.api.directoryContents(directory)
-	$: isRoot = directory === '/'
+	let directory = '/',
+		volumes
 
 	function navigate(path) {
 		if (directory === '/') {
@@ -13,20 +11,25 @@
 			directory += '/' + path
 		}
 	}
+
 	function navigateUp() {
 		directory = directory.split('/').slice(0, -1).join('/') || '/'
 	}
 
-	$: directory = directory.replaceAll('\\', '/')
-
 	const search = async () => {
-		// let bill = await window.showDirectoryPicker()
-		// console.log("bill",bill)
-
 		let jeff = await window.api.getTree(directory)
-		console.log("jeff",jeff)
+		console.log('jeff', jeff)
 	}
 
+	$: directory = directory.replaceAll('\\', '/')
+	$: filesPromise = window.api.directoryContents(directory)
+	$: isRoot = directory === '/'
+
+	onMount(async () => {
+		volumes = await window.api.getVolumes()
+	})
+
+	$: console.log('volumes', volumes)
 </script>
 
 <div class="bg-base-100 card m-4 p-4 h-96">
@@ -35,16 +38,22 @@
 	</div>
 
 	{#await filesPromise then files}
+		<span
+			on:click={() => (directory = '/')}
+			class="font-semibold text-primary-focus cursor-pointer hover:text primary hover:bg-neutral-content p-1 w-full"
+		>
+			[root]
+		</span>
 		{#if !isRoot}
 			<span
 				on:click={() => navigateUp()}
-				class="text-primary-focus cursor-pointer hover:text primary hover:bg-neutral-content p-1 w-full"
+				class="font-semibold text-primary-focus cursor-pointer hover:text primary hover:bg-neutral-content p-1 w-full"
 			>
-				🔼
+				[up]
 			</span>
 		{/if}
 
-		<ul class=" overflow-auto">
+		<ul class="ml-2 overflow-auto">
 			{#each files.sort((a, b) => a.type.localeCompare(b.type)) as entry}
 				{#if entry.type === 'directory'}
 					<li
@@ -52,7 +61,7 @@
 						on:click={() => navigate(entry.name)}
 					>
 						<span href={''} class="font-semibold text-primary-focus p-1 w-full">
-							./{entry.name}
+							/{entry.name}
 						</span>
 					</li>
 				{:else}
@@ -65,9 +74,9 @@
 	{/await}
 </div>
 <div class="flex justify-end">
-	<button class="btn btn-primary btn-sm" on:click={search}
-		>Choose Directory</button
-	>
+	<button class="btn btn-primary btn-sm" on:click={search}>
+		Choose Directory
+	</button>
 </div>
 
 <style lang="postcss">

@@ -1,12 +1,11 @@
 const { readdir } = require('fs/promises')
-const path = require("path");
+const path = require('path')
 const { contextBridge } = require('electron')
-const dirTree = require("directory-tree");
-
+const dirTree = require('directory-tree')
 const nodeDiskInfo = require('node-disk-info')
 
 // windows network drives
-let networkDrive = require('windows-network-drive');
+let networkDrive = require('windows-network-drive')
 
 const currentDirectory = () => {
 	return process.cwd()
@@ -21,16 +20,16 @@ const directoryContents = async (incoming) => {
 }
 
 const getTree = async (incoming) => {
-	console.log("incoming", incoming)
-	const absolutePath = path.resolve(incoming);
-	console.log("incoming", absolutePath)
+	console.log('incoming', incoming)
+	const absolutePath = path.resolve(incoming)
+	console.log('incoming', absolutePath)
 	return dirTree(absolutePath)
 }
 
 const getVolumes = async () => {
 	let volumes = {
 		data: [],
-		simple: []
+		simple: [],
 	}
 
 	// await Promise.all([nodeDiskInfo.getDiskInfo(), networkDrive.list()])
@@ -39,18 +38,22 @@ const getVolumes = async () => {
 	// 		volumes.net =  results[1]
 	// 	})
 
-	await nodeDiskInfo.getDiskInfo()
-		.then(disks => {
-			volumes = disks
+	await nodeDiskInfo
+		.getDiskInfo()
+		.then((disks) => {
+			volumes = disks.map((e) => e._mounted)
 		})
-		.catch(reason => {
-			console.error(reason);
-		});
+		.catch((reason) => {
+			console.error(reason)
+		})
 	// await networkDrive.list().then(drives => volumes.net = drives)
 
 	return volumes
 }
 
-
-
-contextBridge.exposeInMainWorld('api', { directoryContents, currentDirectory, getTree, getVolumes })
+contextBridge.exposeInMainWorld('api', {
+	directoryContents,
+	currentDirectory,
+	getTree,
+	getVolumes,
+})

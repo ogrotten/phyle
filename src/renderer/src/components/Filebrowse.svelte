@@ -43,7 +43,7 @@
 </script>
 
 <div class="bg-base-100 card m-4 p-4 h-96">
-	<div class="flex gap-4">
+	<div class="flex gap-4 h-full">
 		<div class="space-y-2 flex flex-col">
 			{#each volumes as drive, idx}
 				<button
@@ -54,24 +54,24 @@
 				</button>
 			{/each}
 		</div>
-		<span class="">
+		<div class="">
 			<div class="w-full border-b border-grey-200 pb-2 mb-2">
 				<p class="">{cwd}</p>
 			</div>
 			{#await filesPromise then files}
-				<span
+				<div
 					on:click={() => (cwd = '/')}
 					class="font-semibold text-primary-focus cursor-pointer hover:text primary hover:bg-neutral-content p-1 w-full"
 				>
 					[root]
-				</span>
+				</div>
 				{#if !isRoot}
-					<span
+					<div
 						on:click={() => navigateUp()}
 						class="font-semibold text-primary-focus cursor-pointer hover:text primary hover:bg-neutral-content p-1 w-full"
 					>
 						[up]
-					</span>
+					</div>
 				{/if}
 				<div class=" h-full overflow-auto">
 					<ul class="ml-2">
@@ -97,7 +97,7 @@
 					</ul>
 				</div>
 			{/await}
-		</span>
+		</div>
 	</div>
 </div>
 <div class="flex justify-end">

@@ -1,9 +1,9 @@
 <script>
 	import { onMount } from 'svelte'
 
-	let directory = '/',
+	let directory = 'Music',
 		volumes = [],
-		drive = '',
+		drive = 'G:/',
 		cwd
 
 	function navigate(path) {
@@ -36,7 +36,7 @@
 
 	onMount(async () => {
 		volumes = await window.api.getVolumes()
-		drive = volumes[0]
+		if (!drive) drive = volumes[0]
 	})
 
 	$: console.log(`conlog: drive, directory`, drive, directory)

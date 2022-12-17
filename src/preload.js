@@ -31,13 +31,6 @@ const getVolumes = async () => {
 		data: [],
 		simple: [],
 	}
-
-	// await Promise.all([nodeDiskInfo.getDiskInfo(), networkDrive.list()])
-	// 	.then(results => {
-	// 		volumes.local = results[0]
-	// 		volumes.net =  results[1]
-	// 	})
-
 	await nodeDiskInfo
 		.getDiskInfo()
 		.then((disks) => {

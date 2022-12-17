@@ -2,6 +2,7 @@
 const path = require('path')
 const { app, BrowserWindow } = require('electron')
 const debug = require('electron-debug')
+const sqlite = require('sqlite-electron')
 
 console.log(`conlog: __dirname`, path.join(__dirname, 'preload.js'))
 
@@ -36,4 +37,17 @@ app.whenReady().then(() => {
 
 app.on('window-all-closed', function () {
 	if (process.platform !== 'darwin') app.quit()
+})
+
+ipcMain.handle('databasePath', async (event, dbPath) => {
+	// './sqlite/phyle.db'
+	return await sqlite.setdbPath(dbPath)
+})
+
+ipcMain.handle('executeQuery', async (event, query, fetch, value) => {
+	return await sqlite.executeQuery(query, fetch, value)
+})
+
+ipcMain.handle('executeMany', async (event, query, values) => {
+	return await sqlite.executeMany(query, values)
 })

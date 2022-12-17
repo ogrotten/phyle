@@ -1,10 +1,14 @@
 # Docs that matter
 
-* https://github.com/tmotagam/sqlite-electron
-* https://www.electronjs.org/docs/latest/api/ipc-main
-* https://daisyui.com/components/
+- https://github.com/tmotagam/sqlite-electron
+- https://www.electronjs.org/docs/latest/api/ipc-main
+- https://daisyui.com/components/
 
 ---
+
+## `better-sqlite3` problem fix
+
+- https://stackoverflow.com/a/52796884/289296
 
 ---
 

@@ -1,8 +1,7 @@
 // This file is the entry point for the Electron application.
 const path = require('path')
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const debug = require('electron-debug')
-const sqlite = require('sqlite-electron')
 
 console.log(`conlog: __dirname`, path.join(__dirname, 'preload.js'))
 

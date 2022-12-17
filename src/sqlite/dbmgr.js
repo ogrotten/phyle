@@ -1,3 +1,12 @@
-const sqlite = requre('better-sqlite3-with-prebuilds')
-const db = new sqlite('./phyle.db')
+const db = require('better-sqlite3')('./src/sqlite/phyle.db', {
+	fileMustExist: true,
+	verbose: console.log,
+})
+// const db = new sqlite
 exports.db = db
+
+console.log(`conlog: sqlite`, db.open, db.name)
+
+// db.run(
+// 	'INSERT INTO files (filename, path) VALUES("name of file", "entire path")'
+// )

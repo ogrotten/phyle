@@ -6,6 +6,8 @@ const nodeDiskInfo = require('node-disk-info')
 const { walkObject } = require('walk-object')
 const example = require('./sqlite/example.json')
 
+const dbFiles = require('./sqlite/dbFiles')
+
 // windows network drives
 let networkDrive = require('windows-network-drive')
 
@@ -33,7 +35,7 @@ const getTree = async (incoming) => {
 			filesOnly.push(value)
 		}
 	})
-	console.log(`conlog: filesOnly`, filesOnly, tree)
+	dbFiles.storeFiles(filesOnly)
 }
 
 const getVolumes = async () => {

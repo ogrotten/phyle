@@ -19,9 +19,8 @@
 	}
 
 	const search = async () => {
-		console.log(`conlog: clicked`)
 		let jeff = await window.api.getTree(cwd)
-		console.log('jeff', jeff)
+		window.api.storeFiles(jeff)
 	}
 
 	const newDrive = (idx) => {

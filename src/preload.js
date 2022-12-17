@@ -44,9 +44,23 @@ const getVolumes = async () => {
 	return volumes
 }
 
+const storeFiles = (incoming) => {
+	console.log(`conlog: incoming`, incoming)
+	let strung = JSON.stringify(incoming).replaceAll('\\\\', '/').split('{')
+
+	// let unstrung = strung.map(f => {
+
+	// })
+
+	let tack = '{' + strung[17]
+
+	console.log(`conlog: strung`, tack)
+}
+
 contextBridge.exposeInMainWorld('api', {
 	directoryContents,
 	currentDirectory,
 	getTree,
 	getVolumes,
+	storeFiles,
 })

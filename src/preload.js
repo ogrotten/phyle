@@ -3,6 +3,8 @@ const path = require('path')
 const { contextBridge } = require('electron')
 const dirTree = require('directory-tree')
 const nodeDiskInfo = require('node-disk-info')
+const { walkObject } = require('walk-object')
+const example = require('./sqlite/example.json')
 
 // windows network drives
 let networkDrive = require('windows-network-drive')
@@ -23,7 +25,15 @@ const getTree = async (incoming) => {
 	console.log('incoming', incoming)
 	const absolutePath = path.resolve(incoming)
 	console.log('incoming', absolutePath)
-	return dirTree(absolutePath)
+	const tree = dirTree(absolutePath, { normalizePath: true })
+
+	let filesOnly = []
+	walkObject(tree, ({ value, location, isLeaf }) => {
+		if (Object.entries(value).length === 2) {
+			filesOnly.push(value)
+		}
+	})
+	console.log(`conlog: filesOnly`, filesOnly, tree)
 }
 
 const getVolumes = async () => {
@@ -46,15 +56,6 @@ const getVolumes = async () => {
 
 const storeFiles = (incoming) => {
 	console.log(`conlog: incoming`, incoming)
-	let strung = JSON.stringify(incoming).replaceAll('\\\\', '/').split('{')
-
-	// let unstrung = strung.map(f => {
-
-	// })
-
-	let tack = '{' + strung[17]
-
-	console.log(`conlog: strung`, tack)
 }
 
 contextBridge.exposeInMainWorld('api', {

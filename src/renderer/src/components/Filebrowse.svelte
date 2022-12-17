@@ -20,7 +20,7 @@
 
 	const search = async () => {
 		let jeff = await window.api.getTree(cwd)
-		window.api.storeFiles(jeff)
+		// window.api.storeFiles(jeff)
 	}
 
 	const newDrive = (idx) => {

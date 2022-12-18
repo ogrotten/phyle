@@ -7,6 +7,7 @@ const { walkObject } = require('walk-object')
 const example = require('./sqlite/example.json')
 
 const dbFiles = require('./sqlite/dbFiles')
+const dbTags = require('./sqlite/dbTags')
 
 // windows network drives
 let networkDrive = require('windows-network-drive')
@@ -67,4 +68,5 @@ contextBridge.exposeInMainWorld('api', {
 	getVolumes,
 	storeFiles,
 	getFiles: dbFiles.getFiles,
+	getTags: dbTags.getTags,
 })

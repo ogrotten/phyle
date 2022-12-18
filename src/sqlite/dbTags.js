@@ -15,3 +15,7 @@ exports.auto = async (incoming) => {
 
 	return incoming
 }
+
+exports.getTags = () => {
+	return allTags.map((t) => ({ ...t, in: false }))
+}

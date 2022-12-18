@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte'
+	import { slide } from 'svelte/transition'
 	const dev = false
 	let directory = 'Music',
 		volumes = [],
@@ -41,7 +42,15 @@
 	$: console.log(`conlog: drive, directory`, drive, directory)
 </script>
 
-<div class="bg-neutral-content card p-4 h-full w-96 flex flex-col gap-4">
+<div
+	class="bg-neutral-content card p-4 h-full w-96 flex flex-col gap-4 pr-8 relative"
+	transition:slide
+>
+	<button
+		class="h-8 w-8 bg-yellow-200 rounded absolute inset-y-auto top-1/4 right-0"
+	>
+		<!--  -->
+	</button>
 	<div
 		class:bg-blue-400={dev}
 		id="Container"
@@ -69,7 +78,7 @@
 			</div>
 			<div class="flex justify-start gap-2">
 				<div
-					on:click={() => (cwd = '/')}
+					on:click={() => (directory = '/')}
 					class="rounded font-semibold text-primary-focus cursor-pointer hover:text primary hover:bg-neutral-content p-1 bg-red-400"
 					class:bg-red-400={dev}
 				>

@@ -3,12 +3,13 @@ const dbTags = require('./dbTags')
 const db = dbmgr.db
 
 exports.storeFiles = async (incoming) => {
-	const autotag = dbTags.auto(incoming)
+	const autotag = await dbTags.auto(incoming)
+	// console.log(`conlog: autotag`, autotag)
 
 	const stmt = db.prepare(
-		`INSERT INTO files(filename, path, object) VALUES(?, ?, ?)`
+		`INSERT INTO files(filename, path, tags_auto, object) VALUES(?, ?, ?, ?)`
 	)
-	incoming.forEach((item, idx) => {
-		stmt.run(item.name, item.path, JSON.stringify(item))
+	autotag.forEach((item) => {
+		stmt.run(item.name, item.path, item.tags_auto, JSON.stringify(item))
 	})
 }

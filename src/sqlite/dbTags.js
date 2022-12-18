@@ -4,9 +4,14 @@ const db = dbmgr.db
 const allTags = db.prepare('SELECT * FROM tags').all()
 
 exports.auto = async (incoming) => {
+	if (!incoming) return
+
 	const toMatch = new RegExp(`(${allTags.map((e) => e.data).join('|')})`, 'ig')
-	let outgoing = incoming.map((e) => {
-		return { tags: e.name.match(toMatch), name: e.name }
+	incoming.forEach((e) => {
+		e.tags_auto = ' '
+		const hold = e.name.match(toMatch)
+		if (hold) e.tags_auto = Array.from(hold).join(',')
 	})
-	console.log(`conlog: outgoing`, outgoing)
+
+	return incoming
 }

@@ -14,8 +14,8 @@
 	// })
 </script>
 
-<div data-theme="winter" class="bg-emerald-200 w-full h-full p-4">
-		<Filebrowse />
+<div data-theme="winter" class="bg-emerald-200 w-screen h-screen p-4">
+	<Filebrowse />
 </div>
 
 <style>

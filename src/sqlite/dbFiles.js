@@ -13,3 +13,14 @@ exports.storeFiles = async (incoming) => {
 		stmt.run(item.name, item.path, item.tags_auto, JSON.stringify(item))
 	})
 }
+
+exports.getFiles = () => {
+	let stmt = db.prepare('SELECT * FROM files')
+	let files = []
+	return [...stmt.iterate()].map((file) => {
+		return {
+			...file,
+			tags_auto: file.tags_auto.split(',') || [],
+		}
+	})
+}

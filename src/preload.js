@@ -66,4 +66,5 @@ contextBridge.exposeInMainWorld('api', {
 	getTree,
 	getVolumes,
 	storeFiles,
+	getFiles: dbFiles.getFiles,
 })

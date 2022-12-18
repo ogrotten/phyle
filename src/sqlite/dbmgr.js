@@ -1,6 +1,5 @@
 const db = require('better-sqlite3')('./src/sqlite/phyle.db', {
 	fileMustExist: true,
-	verbose: console.log,
 })
 // const db = new sqlite
 exports.db = db

@@ -1,119 +1,119 @@
 {
-	"path": "G:\\Music",
+	"path": "G:/Music",
 	"name": "Music",
 	"children": [
 		{
-			"path": "G:\\Music\\Reason",
+			"path": "G:/Music/Reason",
 			"name": "Reason",
 			"children": [
 				{
-					"path": "G:\\Music\\Reason\\zounds",
+					"path": "G:/Music/Reason/zounds",
 					"name": "zounds",
 					"children": [
 						{
-							"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes",
+							"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes",
 							"name": "Cinematic-Gamescapes",
 							"children": [
 								{
-									"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes",
+									"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes",
 									"name": "Cinematic Gamescapes",
 									"children": [
 										{
-											"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Audio Previews",
+											"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Audio Previews",
 											"name": "Audio Previews",
 											"children": [
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Audio Previews\\Cinematic Drone Piano Bounced.wav",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Audio Previews/Cinematic Drone Piano Bounced.wav",
 													"name": "Cinematic Drone Piano Bounced.wav"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Audio Previews\\desktop.ini",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Audio Previews/desktop.ini",
 													"name": "desktop.ini"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Audio Previews\\Doom Machine Bounced.wav",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Audio Previews/Doom Machine Bounced.wav",
 													"name": "Doom Machine Bounced.wav"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Audio Previews\\Epic Sequenced Choir Bounced.wav",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Audio Previews/Epic Sequenced Choir Bounced.wav",
 													"name": "Epic Sequenced Choir Bounced.wav"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Audio Previews\\Final Fantasy Box Bounced.wav",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Audio Previews/Final Fantasy Box Bounced.wav",
 													"name": "Final Fantasy Box Bounced.wav"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Audio Previews\\Gordon Slayer Bounced.wav",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Audio Previews/Gordon Slayer Bounced.wav",
 													"name": "Gordon Slayer Bounced.wav"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Audio Previews\\Granular String Pad Bounced.wav",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Audio Previews/Granular String Pad Bounced.wav",
 													"name": "Granular String Pad Bounced.wav"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Audio Previews\\Marching Snare Roll Bounced.wav",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Audio Previews/Marching Snare Roll Bounced.wav",
 													"name": "Marching Snare Roll Bounced.wav"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Audio Previews\\OTT Doom Comp FX Bounced.wav",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Audio Previews/OTT Doom Comp FX Bounced.wav",
 													"name": "OTT Doom Comp FX Bounced.wav"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Audio Previews\\Quadragrainic World Bounced.wav",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Audio Previews/Quadragrainic World Bounced.wav",
 													"name": "Quadragrainic World Bounced.wav"
 												}
 											]
 										},
 										{
-											"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\CinematicGamescapes.reason",
+											"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/CinematicGamescapes.reason",
 											"name": "CinematicGamescapes.reason"
 										},
 										{
-											"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\CinematicGamescapes.wav",
+											"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/CinematicGamescapes.wav",
 											"name": "CinematicGamescapes.wav"
 										},
 										{
-											"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Patches",
+											"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Patches",
 											"name": "Patches",
 											"children": [
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Patches\\Cinematic Drone Piano.cmb",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Patches/Cinematic Drone Piano.cmb",
 													"name": "Cinematic Drone Piano.cmb"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Patches\\Doom Machine.cmb",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Patches/Doom Machine.cmb",
 													"name": "Doom Machine.cmb"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Patches\\Epic Sequenced Choir.cmb",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Patches/Epic Sequenced Choir.cmb",
 													"name": "Epic Sequenced Choir.cmb"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Patches\\Final Fantasy Box.cmb",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Patches/Final Fantasy Box.cmb",
 													"name": "Final Fantasy Box.cmb"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Patches\\Future Multi Glitch FX [RUN].cmb",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Patches/Future Multi Glitch FX [RUN].cmb",
 													"name": "Future Multi Glitch FX [RUN].cmb"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Patches\\Gordon Slayer.cmb",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Patches/Gordon Slayer.cmb",
 													"name": "Gordon Slayer.cmb"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Patches\\Granular String Pad.repatch",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Patches/Granular String Pad.repatch",
 													"name": "Granular String Pad.repatch"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Patches\\Marching Snare Roll.cmb",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Patches/Marching Snare Roll.cmb",
 													"name": "Marching Snare Roll.cmb"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Patches\\OTT Doom Comp FX.cmb",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Patches/OTT Doom Comp FX.cmb",
 													"name": "OTT Doom Comp FX.cmb"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\Cinematic Gamescapes\\Patches\\Quadragrainic World.cmb",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/Cinematic Gamescapes/Patches/Quadragrainic World.cmb",
 													"name": "Quadragrainic World.cmb"
 												}
 											]
@@ -121,117 +121,117 @@
 									]
 								},
 								{
-									"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX",
+									"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX",
 									"name": "__MACOSX",
 									"children": [
 										{
-											"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\._Cinematic Gamescapes",
+											"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/._Cinematic Gamescapes",
 											"name": "._Cinematic Gamescapes"
 										},
 										{
-											"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes",
+											"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes",
 											"name": "Cinematic Gamescapes",
 											"children": [
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\._Audio Previews",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/._Audio Previews",
 													"name": "._Audio Previews"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\._CinematicGamescapes.reason",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/._CinematicGamescapes.reason",
 													"name": "._CinematicGamescapes.reason"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\._CinematicGamescapes.wav",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/._CinematicGamescapes.wav",
 													"name": "._CinematicGamescapes.wav"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\._Patches",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/._Patches",
 													"name": "._Patches"
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Audio Previews",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Audio Previews",
 													"name": "Audio Previews",
 													"children": [
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Audio Previews\\._Cinematic Drone Piano Bounced.wav",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Audio Previews/._Cinematic Drone Piano Bounced.wav",
 															"name": "._Cinematic Drone Piano Bounced.wav"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Audio Previews\\._Doom Machine Bounced.wav",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Audio Previews/._Doom Machine Bounced.wav",
 															"name": "._Doom Machine Bounced.wav"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Audio Previews\\._Epic Sequenced Choir Bounced.wav",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Audio Previews/._Epic Sequenced Choir Bounced.wav",
 															"name": "._Epic Sequenced Choir Bounced.wav"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Audio Previews\\._Final Fantasy Box Bounced.wav",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Audio Previews/._Final Fantasy Box Bounced.wav",
 															"name": "._Final Fantasy Box Bounced.wav"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Audio Previews\\._Gordon Slayer Bounced.wav",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Audio Previews/._Gordon Slayer Bounced.wav",
 															"name": "._Gordon Slayer Bounced.wav"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Audio Previews\\._Granular String Pad Bounced.wav",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Audio Previews/._Granular String Pad Bounced.wav",
 															"name": "._Granular String Pad Bounced.wav"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Audio Previews\\._Marching Snare Roll Bounced.wav",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Audio Previews/._Marching Snare Roll Bounced.wav",
 															"name": "._Marching Snare Roll Bounced.wav"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Audio Previews\\._OTT Doom Comp FX Bounced.wav",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Audio Previews/._OTT Doom Comp FX Bounced.wav",
 															"name": "._OTT Doom Comp FX Bounced.wav"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Audio Previews\\._Quadragrainic World Bounced.wav",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Audio Previews/._Quadragrainic World Bounced.wav",
 															"name": "._Quadragrainic World Bounced.wav"
 														}
 													]
 												},
 												{
-													"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Patches",
+													"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Patches",
 													"name": "Patches",
 													"children": [
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Patches\\._Cinematic Drone Piano.cmb",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Patches/._Cinematic Drone Piano.cmb",
 															"name": "._Cinematic Drone Piano.cmb"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Patches\\._Doom Machine.cmb",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Patches/._Doom Machine.cmb",
 															"name": "._Doom Machine.cmb"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Patches\\._Epic Sequenced Choir.cmb",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Patches/._Epic Sequenced Choir.cmb",
 															"name": "._Epic Sequenced Choir.cmb"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Patches\\._Final Fantasy Box.cmb",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Patches/._Final Fantasy Box.cmb",
 															"name": "._Final Fantasy Box.cmb"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Patches\\._Future Multi Glitch FX [RUN].cmb",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Patches/._Future Multi Glitch FX [RUN].cmb",
 															"name": "._Future Multi Glitch FX [RUN].cmb"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Patches\\._Gordon Slayer.cmb",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Patches/._Gordon Slayer.cmb",
 															"name": "._Gordon Slayer.cmb"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Patches\\._Granular String Pad.repatch",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Patches/._Granular String Pad.repatch",
 															"name": "._Granular String Pad.repatch"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Patches\\._Marching Snare Roll.cmb",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Patches/._Marching Snare Roll.cmb",
 															"name": "._Marching Snare Roll.cmb"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Patches\\._OTT Doom Comp FX.cmb",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Patches/._OTT Doom Comp FX.cmb",
 															"name": "._OTT Doom Comp FX.cmb"
 														},
 														{
-															"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes\\__MACOSX\\Cinematic Gamescapes\\Patches\\._Quadragrainic World.cmb",
+															"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes/__MACOSX/Cinematic Gamescapes/Patches/._Quadragrainic World.cmb",
 															"name": "._Quadragrainic World.cmb"
 														}
 													]
@@ -243,7 +243,7 @@
 							]
 						},
 						{
-							"path": "G:\\Music\\Reason\\zounds\\Cinematic-Gamescapes.zip",
+							"path": "G:/Music/Reason/zounds/Cinematic-Gamescapes.zip",
 							"name": "Cinematic-Gamescapes.zip"
 						}
 					]

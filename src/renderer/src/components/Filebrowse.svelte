@@ -153,7 +153,7 @@
 					</div>
 				</div>
 				<div class="flex justify-end">
-					<button class="btn btn-primary btn-sm" disabled on:click={search}>
+					<button class="btn btn-primary btn-sm" on:click={search}>
 						Choose Directory
 					</button>
 				</div>

@@ -3,10 +3,11 @@ const db = dbmgr.db
 
 const allTags = db.prepare('SELECT * FROM tags').all()
 
-exports.auto = async (incoming) => {
+exports.autoTag = async (incoming) => {
 	if (!incoming) return
 
 	const toMatch = new RegExp(`(${allTags.map((e) => e.data).join('|')})`, 'ig')
+
 	incoming.forEach((e) => {
 		e.tags_auto = ' '
 		const hold = e.name.match(toMatch)

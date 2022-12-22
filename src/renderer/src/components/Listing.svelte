@@ -7,12 +7,14 @@
 	let files = [],
 		tags = [],
 		filterTags = [],
-		filterFiles = files
+		filterFiles = files,
+		allTags
 
 	onMount(async () => {
 		files = await window.api.getFiles()
 		tags = await window.api.getTags()
 		filterFiles = files
+		allTags = await window.api.dbTags.allTags
 	})
 
 	const tagfilter = (incoming) => {
@@ -21,6 +23,20 @@
 
 	$: tags?.sort((a, b) => a?.name?.localeCompare(b.name))
 	$: filterTags = tags.filter((t) => t?.in)
+
+	const tagIdsToText = (list) => {
+		if (!allTags) return
+		return (
+			list[0]
+				.split('|')
+
+				// TODO:
+				// right here
+				// matching the tags_auto ids to rowid
+				.map((e) => allTags.rowId === e)
+				.sort((a, b) => a.localeCompare(b))
+		)
+	}
 
 	// $: console.log(`conlog: filterFiles`, filterFiles)
 	// $: filterFiles = tags?.filter((element) =>
@@ -61,8 +77,7 @@
 		return filterTags.length > 0 ? intersection : files
 	}
 
-	// let lister = []
-	// $: lister = filterFiles.length ? filterFiles : files
+	$: console.log(`conlog: allTags`, allTags)
 </script>
 
 <div class="card w-full h-full grow flex flex-col  pr-0">
@@ -92,19 +107,20 @@
 	</div>
 	<ul class="overflow-auto">
 		{#each filterFiles as file}
+			{@const tags = tagIdsToText(file?.tags_auto)}
 			<li class="py-2 pl-4 hover:bg-emerald-300">
 				<p class="font-semibold text-base flex items-center">
 					{file.filename}
 					<Icon src={External} class="text-gray-50 h-4 w-4" />
 				</p>
 				<div class="flex">
-					<!-- {#if file.tags_auto != ' '}
-						{#each file.tags_auto.sort((a, b) => a.localeCompare(b)) as tag}
+					{#if file?.tags_auto != '0' && tags}
+						{#each tags as tag}
 							<p class="tag">
 								{tag}
 							</p>
 						{/each}
-					{/if} -->
+					{/if}
 				</div>
 			</li>
 		{/each}

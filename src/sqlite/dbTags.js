@@ -1,9 +1,20 @@
 const dbmgr = require('./dbmgr')
-const db = dbmgr.db
+const pb = dbmgr.pb
 
-const allTags = db.prepare('SELECT rowid,name,data,type FROM tags').all()
+// const allTags = db.prepare('SELECT rowid,name,data,type FROM tags').all()
 
-exports.allTags = allTags
+// const allTags = pb.collection('tags').getFullList(200 /* batch size */, {
+// 	sort: 'tag',
+// })
+
+async function getTags() {
+	allTags = await pb.collection('tags').getFullList(200 /* batch size */, {
+		sort: 'tag',
+	})
+	return allTags.map((t) => ({ ...t, in: false }))
+}
+let allTags = getTags()
+
 exports.autoTag = async (incoming) => {
 	if (!incoming) return
 
@@ -32,6 +43,5 @@ exports.autoTag = async (incoming) => {
 	return incoming
 }
 
-exports.getTags = () => {
-	return allTags.map((t) => ({ ...t, in: false }))
-}
+exports.allTags = allTags
+exports.getTags = getTags

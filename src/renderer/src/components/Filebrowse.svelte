@@ -6,9 +6,11 @@
 	import { Close } from '@steeze-ui/css-gg'
 
 	const dev = false
-	let directory = '/Music',
+	// let directory = '/Music',
+	let directory = '/Program Files/Google/Chrome/Application/SetupMetrics',
 		volumes = [],
-		drive = 'G:',
+		// drive = 'G:',
+		drive = 'C:',
 		cwd
 
 	function navigate(path) {

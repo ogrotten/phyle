@@ -3,13 +3,13 @@ const dbTags = require('./dbTags')
 const pb = dbmgr.pb
 
 exports.storeFiles = async (incoming) => {
-	const autotag = await dbTags.autoTag(incoming)
+	// const autotag = await dbTags.autoTag(incoming)
 
 	const data = {
 		filename: 'test',
 		path: 'test',
-		tags_auto: 'RELATION_RECORD_ID',
-		tags_manual: 'RELATION_RECORD_ID',
+		tags_auto: '',
+		tags_manual: '',
 		object: 'JSON',
 		field: 'test',
 	}

@@ -44,7 +44,6 @@ const getTree = async (incoming) => {
 			filesOnly.push(value)
 		}
 	})
-	// dbFiles.storeFiles(filesOnly)
 	return filesOnly
 }
 
@@ -61,7 +60,6 @@ const getVolumes = async () => {
 		.catch((reason) => {
 			console.error(reason)
 		})
-	// await networkDrive.list().then(drives => volumes.net = drives)
 
 	return volumes
 }

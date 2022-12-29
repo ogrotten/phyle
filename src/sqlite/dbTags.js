@@ -1,12 +1,6 @@
 const dbmgr = require('./dbmgr')
 const pb = dbmgr.pb
 
-// const allTags = db.prepare('SELECT rowid,name,data,type FROM tags').all()
-
-// const allTags = pb.collection('tags').getFullList(200 /* batch size */, {
-// 	sort: 'tag',
-// })
-
 async function getTags() {
 	allTags = await pb.collection('tags').getFullList(200 /* batch size */, {
 		sort: 'tag',

@@ -25,22 +25,24 @@
 	$: filterTags = tags.filter((t) => t?.in)
 
 	const tagIdsToText = (list) => {
+		// debugger
+		console.log(`LOG..Listing: list`, list)
 		if (!allTags) return
 		return (
 			list[0]
-				.split('|')
+				// .split('|')
 
 				// TODO:
 				// right here
 				// matching the tags_auto ids to rowid
-				.map((e) => allTags.rowId === e)
-				.sort((a, b) => a.localeCompare(b))
+				.map((e) => allTags.row === e)
+			// .sort((a, b) => a.localeCompare(b))
 		)
 	}
 
 	// $: console.log(`conlog: filterFiles`, filterFiles)
 	$: filterFiles = tags?.filter((element) =>
-		files?.tags_auto?.includes(element.name)
+		files?.tags_auto?.includes(element.id)
 	)
 
 	$: if (files?.length) filterFiles = filesVsTags(filterTags)
@@ -57,7 +59,6 @@
 
 		let tempTags = [],
 			tempFileTags = []
-		debugger
 		tempTags = filterTags.map((e) => e.name)
 		tempFileTags = filterFiles.map((e) => e.tags_auto)
 
@@ -76,6 +77,8 @@
 
 		return filterTags.length > 0 ? intersection : files
 	}
+
+	$: console.log(`LOG..Listing: allTags`, allTags)
 </script>
 
 <div class="card w-full h-full grow flex flex-col  pr-0">
@@ -87,7 +90,7 @@
 					class="tag cursor-pointer"
 					on:click={() => (tag.in = true)}
 				>
-					{tag.name}
+					{tag.tag}
 				</p>
 			{/each}
 		</div>

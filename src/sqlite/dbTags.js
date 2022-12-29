@@ -19,9 +19,8 @@ exports.autoTag = async (incoming) => {
 	if (!incoming) return
 
 	const toMatch = new RegExp(`(${allTags.map((e) => e.data).join('|')})`, 'ig')
-
 	incoming.forEach((e) => {
-		e.tags_auto = '0'
+		e.tags_auto = []
 
 		const hold = e.name.toLowerCase().match(toMatch)
 		if (!hold) return
@@ -32,12 +31,11 @@ exports.autoTag = async (incoming) => {
 				console.log(`conlog: hold`, hold, tag.data)
 				return hold?.includes(tag.data)
 			})
-			.map((e) => e.rowid)
+			.map((e) => e.id)
 
 		console.log(`conlog: tagIds`, tagIds)
 
-		// e.tags_auto = Array.from(hold).join(',')
-		e.tags_auto = tagIds.join('|')
+		e.tags_auto = tagIds
 	})
 
 	return incoming

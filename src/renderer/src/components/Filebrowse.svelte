@@ -7,7 +7,7 @@
 
 	const dev = false
 	// let directory = '/Music',
-	let directory = '/Program Files/Google/Chrome/Application/SetupMetrics',
+	let directory = '/sounds',
 		volumes = [],
 		// drive = 'G:',
 		drive = 'C:',
@@ -26,7 +26,6 @@
 	}
 
 	const search = async () => {
-		// let jeff = await window.api.getTree(cwd)
 		window.api.storeFiles(await window.api.getTree(cwd))
 	}
 

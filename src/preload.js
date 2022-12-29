@@ -66,16 +66,12 @@ const getVolumes = async () => {
 	return volumes
 }
 
-const storeFiles = (incoming) => {
-	console.log(`conlog: incoming`, incoming)
-}
-
 contextBridge.exposeInMainWorld('api', {
 	directoryContents,
 	currentDirectory,
 	getTree,
 	getVolumes,
-	storeFiles,
+	storeFiles: dbFiles.storeFiles,
 	getFiles: dbFiles.getFiles,
 	getTags: dbTags.getTags,
 	dbFiles,

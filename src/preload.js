@@ -45,6 +45,7 @@ const getTree = async (incoming) => {
 		}
 	})
 	// dbFiles.storeFiles(filesOnly)
+	return filesOnly
 }
 
 const getVolumes = async () => {

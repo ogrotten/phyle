@@ -7,7 +7,7 @@
 	let files = [],
 		tags = [],
 		filterTags = [],
-		filterFiles = files,
+		filterFiles = [],
 		allTags
 
 	onMount(async () => {
@@ -39,11 +39,11 @@
 	}
 
 	// $: console.log(`conlog: filterFiles`, filterFiles)
-	// $: filterFiles = tags?.filter((element) =>
-	// 	files.tags_auto?.includes(element.name)
-	// )
+	$: filterFiles = tags?.filter((element) =>
+		files?.tags_auto?.includes(element.name)
+	)
 
-	$: filterFiles = filesVsTags(filterTags)
+	$: if (files?.length) filterFiles = filesVsTags(filterTags)
 
 	const filesVsTags = () => {
 		// console.log(`conlog: tags`, filterTags)
@@ -57,7 +57,7 @@
 
 		let tempTags = [],
 			tempFileTags = []
-
+		debugger
 		tempTags = filterTags.map((e) => e.name)
 		tempFileTags = filterFiles.map((e) => e.tags_auto)
 
@@ -76,8 +76,6 @@
 
 		return filterTags.length > 0 ? intersection : files
 	}
-
-	$: console.log(`conlog: allTags`, allTags)
 </script>
 
 <div class="card w-full h-full grow flex flex-col  pr-0">

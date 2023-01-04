@@ -6,9 +6,11 @@
 	import { Close } from '@steeze-ui/css-gg'
 
 	const dev = false
-	let directory = '/Music',
+	// let directory = '/Music',
+	let directory = '/sounds',
 		volumes = [],
-		drive = 'G:',
+		// drive = 'G:',
+		drive = 'C:',
 		cwd
 
 	function navigate(path) {
@@ -24,8 +26,7 @@
 	}
 
 	const search = async () => {
-		let jeff = await window.api.getTree(cwd)
-		// window.api.storeFiles(jeff)
+		window.api.storeFiles(await window.api.getTree(cwd))
 	}
 
 	const newDrive = (idx) => {

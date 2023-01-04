@@ -1,4 +1,6 @@
 <script>
+	import ListItem from './ListItem.svelte'
+
 	import { onMount } from 'svelte'
 	import { Icon } from '@steeze-ui/svelte-icon'
 	import { External } from '@steeze-ui/css-gg'
@@ -7,15 +9,8 @@
 	let files = [],
 		tags = [],
 		filterTags = [],
-		filterFiles = files,
+		filterFiles = [],
 		allTags
-
-	onMount(async () => {
-		files = await window.api.getFiles()
-		tags = await window.api.getTags()
-		filterFiles = files
-		allTags = await window.api.dbTags.allTags
-	})
 
 	const tagfilter = (incoming) => {
 		console.log(`conlog: incoming`, incoming)
@@ -26,24 +21,15 @@
 
 	const tagIdsToText = (list) => {
 		if (!allTags) return
-		return (
-			list[0]
-				.split('|')
-
-				// TODO:
-				// right here
-				// matching the tags_auto ids to rowid
-				.map((e) => allTags.rowId === e)
-				.sort((a, b) => a.localeCompare(b))
-		)
+		return list[0].map((e) => allTags.row === e)
 	}
 
 	// $: console.log(`conlog: filterFiles`, filterFiles)
-	// $: filterFiles = tags?.filter((element) =>
-	// 	files.tags_auto?.includes(element.name)
-	// )
+	$: filterFiles = tags?.filter((element) =>
+		files?.tags_auto?.includes(element.id)
+	)
 
-	$: filterFiles = filesVsTags(filterTags)
+	$: if (files?.length) filterFiles = filesVsTags(filterTags)
 
 	const filesVsTags = () => {
 		// console.log(`conlog: tags`, filterTags)
@@ -57,7 +43,6 @@
 
 		let tempTags = [],
 			tempFileTags = []
-
 		tempTags = filterTags.map((e) => e.name)
 		tempFileTags = filterFiles.map((e) => e.tags_auto)
 
@@ -77,7 +62,14 @@
 		return filterTags.length > 0 ? intersection : files
 	}
 
-	$: console.log(`conlog: allTags`, allTags)
+	$: console.log(`LOG..Listing: allTags`, allTags)
+
+	onMount(async () => {
+		files = await window.api.getFiles()
+		tags = await window.api.getTags()
+		allTags = await window.api.dbTags.allTags
+		filterFiles = files
+	})
 </script>
 
 <div class="card w-full h-full grow flex flex-col  pr-0">
@@ -89,7 +81,7 @@
 					class="tag cursor-pointer"
 					on:click={() => (tag.in = true)}
 				>
-					{tag.name}
+					{tag.tag}
 				</p>
 			{/each}
 		</div>
@@ -106,24 +98,11 @@
 		</div>
 	</div>
 	<ul class="overflow-auto">
-		{#each filterFiles as file}
-			{@const tags = tagIdsToText(file?.tags_auto)}
-			<li class="py-2 pl-4 hover:bg-emerald-300">
-				<p class="font-semibold text-base flex items-center">
-					{file.filename}
-					<Icon src={External} class="text-gray-50 h-4 w-4" />
-				</p>
-				<div class="flex">
-					{#if file?.tags_auto != '0' && tags}
-						{#each tags as tag}
-							<p class="tag">
-								{tag}
-							</p>
-						{/each}
-					{/if}
-				</div>
-			</li>
-		{/each}
+		{#if allTags}
+			{#each filterFiles as file}
+				<ListItem dataObj={{ file, allTags }} />
+			{/each}
+		{/if}
 	</ul>
 </div>
 

@@ -1,25 +1,30 @@
 const dbmgr = require('./dbmgr')
 const dbTags = require('./dbTags')
-const db = dbmgr.db
+const pb = dbmgr.pb
 
 exports.storeFiles = async (incoming) => {
-	const autotag = await dbTags.autoTag(incoming)
+	const promises = incoming.map(async (file) => {
+		const data = {
+			filename: file.name,
+			path: file.path,
+			tags_auto: file.tags_auto,
+			object: JSON.stringify(file),
+			field: '?',
+		}
 
-	// const stmt = db.prepare(
-	// 	`INSERT INTO files(filename, path, tags_auto, object) VALUES(?, ?, ?, ?)`
-	// )
-	// autotag.forEach((item) => {
-	// 	stmt.run(item.name, item.path, item.tags_auto, JSON.stringify(item))
-	// })
+		const record = await pb
+			.collection('files')
+			.create(data)
+			.catch((err) => console.log(`LOG..dbFiles: err`, err.data))
+
+		return record
+	})
+
+	return Promise.all(promises)
 }
 
-exports.getFiles = () => {
-	let stmt = db.prepare('SELECT * FROM files')
-	let files = []
-	return [...stmt.iterate()].map((file) => {
-		return {
-			...file,
-			tags_auto: file.tags_auto.split(',') || [],
-		}
+exports.getFiles = async () => {
+	return await pb.collection('files').getFullList(200 /* batch size */, {
+		sort: 'tags_auto',
 	})
 }

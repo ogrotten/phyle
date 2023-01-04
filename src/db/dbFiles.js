@@ -28,3 +28,14 @@ exports.getFiles = async () => {
 		sort: 'tags_auto',
 	})
 }
+
+exports.filterFiles = async (incoming) => {
+	let terms = incoming.map((item) => `filename ~ "${item}"`).join(' || ')
+
+	return await pb
+		.collection('files')
+		.getFullList(200 /* batch size */, {
+			filter: terms,
+		})
+		.catch((err) => console.log(`conlog: err.data`, err.data))
+}

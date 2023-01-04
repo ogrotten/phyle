@@ -8,7 +8,7 @@
 
 	const tagIdsToText = (list) => {
 		if (!allTags) return
-		console.log(`conlog: list`, list)
+		// console.log(`conlog: list`, list)
 		let frank = allTags.filter((e) => list.includes(e.id))
 		return frank
 	}
@@ -19,7 +19,7 @@
 
 	$: tags = tagIdsToText(file?.tags_auto) //
 		.sort((a, b) => a?.tag?.localeCompare(b.tag))
-	$: console.log(`conlog: tags`, tags)
+	// $: console.log(`conlog: tags`, tags)
 </script>
 
 <li class="py-2 pl-4 hover:bg-emerald-300">

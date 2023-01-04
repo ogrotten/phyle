@@ -4,10 +4,10 @@ const { contextBridge } = require('electron')
 const dirTree = require('directory-tree')
 const nodeDiskInfo = require('node-disk-info')
 const { walkObject } = require('walk-object')
-const example = require('./sqlite/example.json')
+const example = require('./db/example.json')
 
-const dbFiles = require('./sqlite/dbFiles')
-const dbTags = require('./sqlite/dbTags')
+const dbFiles = require('./db/dbFiles')
+const dbTags = require('./db/dbTags')
 
 // windows network drives
 let networkDrive = require('windows-network-drive')

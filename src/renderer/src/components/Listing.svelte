@@ -16,52 +16,53 @@
 	}
 
 	$: allTags?.sort((a, b) => a?.tag?.localeCompare(b.tag))
-	$: filterTags = allTags.filter((t) => t?.in)
-
-	const tagIdsToText = (list) => {
-		if (!allTags) return
-		return list[0].map((e) => allTags.row === e)
-	}
+	// $: filterTags = allTags.filter((t) => t?.in)
 
 	// $: console.log(`conlog: filterFiles`, filterFiles)
-	$: filterFiles = allTags?.filter((element) =>
-		files?.tags_auto?.includes(element.id)
-	)
+	// $: filterFiles = allTags?.filter((element) =>
+	// 	files?.tags_auto?.includes(element.id)
+	// )
 
-	$: if (files?.length) filterFiles = filesVsTags(filterTags)
+	// $: if (files?.length) filterFiles = filesVsTags(filterTags)
 
-	const filesVsTags = () => {
-		// console.log(`conlog: tags`, filterTags)
-		// console.log(`conlog: files`, files)
+	// const filesVsTags = () => {
+	// 	// console.log(`conlog: tags`, filterTags)
+	// 	// console.log(`conlog: files`, files)
 
-		// const intersection = array1.filter(element => array2.includes(element));
+	// 	// const intersection = array1.filter(element => array2.includes(element));
 
-		// const intersection = t.filter((tag) =>
-		// 	files.map((file) => file.tags_auto.includes(tag.name))
-		// )
+	// 	// const intersection = t.filter((tag) =>
+	// 	// 	files.map((file) => file.tags_auto.includes(tag.name))
+	// 	// )
 
-		let tempTags = [],
-			tempFileTags = []
-		tempTags = filterTags.map((e) => e.name)
-		tempFileTags = filterFiles.map((e) => e.tags_auto)
+	// 	let tempTags = [],
+	// 		tempFileTags = []
+	// 	tempTags = filterTags.map((e) => e.name)
+	// 	tempFileTags = filterFiles.map((e) => e.tags_auto)
 
-		console.log(`conlog: tags`, tempTags)
-		// console.log(`conlog: files`, tempFileTags)
+	// 	console.log(`conlog: tags`, tempTags)
+	// 	// console.log(`conlog: files`, tempFileTags)
 
-		const intersection = tempTags.filter((tag) => {
-			// console.log(`conlog: tag`, tag)
+	// 	const intersection = tempTags.filter((tag) => {
+	// 		// console.log(`conlog: tag`, tag)
 
-			return tempFileTags.map((file, idx) => {
-				if (file.includes(tag)) return idx
-			})
-		})
+	// 		return tempFileTags.map((file, idx) => {
+	// 			if (file.includes(tag)) return idx
+	// 		})
+	// 	})
 
-		console.log(`conlog: intersection`, intersection)
+	// 	console.log(`conlog: intersection`, intersection)
 
-		return filterTags.length > 0 ? intersection : files
+	// 	return filterTags.length > 0 ? intersection : files
+	// }
+
+	$: console.log(`LOG..Listing: filterFiles`, filterFiles)
+
+	const moreFilter = async (tag) => {
+		tag.in = true
+		filterTags.push(tag.data)
+		filterFiles = await window.api.dbFiles.filterFiles(filterTags)
 	}
-
-	$: console.log(`LOG..Listing: allTags`, allTags)
 
 	onMount(async () => {
 		files = await window.api.getFiles()
@@ -76,10 +77,14 @@
 		<div class="flex">
 			{#each allTags.filter((t) => !t.in) as tag (tag.id)}
 				<p
-					transition:fade
+					transition:fade={{ duration: 100 }}
 					class="tag cursor-pointer"
-					on:click={() => (tag.in = true)}
+					on:click={() => moreFilter(tag)}
 				>
+					<!-- on:click={async () => {
+						tag.in = true
+						filterFiles = await window.api.dbFiles.filterFiles(tag.data)
+					}} -->
 					{tag.tag}
 				</p>
 			{/each}
@@ -87,9 +92,12 @@
 		<div class="flex border-t-2 border-neutral-content">
 			{#each allTags.filter((t) => t?.in) as tag (tag.id)}
 				<p
-					transition:fade
+					transition:fade={{ duration: 100 }}
 					class="tag cursor-pointer"
-					on:click={() => (tag.in = false)}
+					on:click={async () => {
+						tag.in = false
+						filterFiles = await window.api.dbFiles.filterFiles()
+					}}
 				>
 					{tag.tag}
 				</p>

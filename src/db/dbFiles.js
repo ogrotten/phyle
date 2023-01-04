@@ -3,19 +3,29 @@ const dbTags = require('./dbTags')
 const pb = dbmgr.pb
 
 exports.storeFiles = async (incoming) => {
-	const promises = incoming.map(async (file) => {
-		const data = {
-			filename: file.name,
-			path: file.path,
-			tags_auto: file.tags_auto,
-			object: JSON.stringify(file),
-			field: '?',
-		}
+	pb.autoCancellation(false)
+	let tags_auto = await dbTags.autoTag(incoming)
+	const promises = incoming.map(async (file, idx) => {
+		// const data = {
+		// 	filename: file.name,
+		// 	path: file.path,
+		// 	tags_auto: tags_auto[idx].tags_auto,
+		// 	object: JSON.stringify(file),
+		// 	field: '?',
+		// }
 
 		const record = await pb
 			.collection('files')
-			.create(data)
-			.catch((err) => console.log(`LOG..dbFiles: err`, err.data))
+			.create({
+				filename: file.name,
+				path: file.path,
+				tags_auto: tags_auto[idx].tags_auto,
+				object: JSON.stringify(file),
+				field: '?',
+			})
+			.catch((err) => {
+				console.error(`LOG..dbFiles: err`, err.data)
+			})
 
 		return record
 	})

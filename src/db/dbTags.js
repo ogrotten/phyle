@@ -22,12 +22,12 @@ exports.autoTag = async (incoming) => {
 		// console.log(`conlog: hold`, hold)
 		const tagIds = allTags
 			.filter((tag) => {
-				console.log(`conlog: hold`, hold, tag.data)
+				// console.log(`conlog: hold`, hold, tag.data)
 				return hold?.includes(tag.data)
 			})
 			.map((e) => e.id)
 
-		console.log(`conlog: tagIds`, tagIds)
+		// console.log(`conlog: tagIds`, tagIds)
 
 		e.tags_auto = tagIds
 	})

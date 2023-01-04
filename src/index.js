@@ -1,3 +1,7 @@
+// TODO
+// COMPLETELY REBUILD THE ARCHITECTURE FOR
+// TAG STORAGE AND FILTERING.
+
 // This file is the entry point for the Electron application.
 const path = require('path')
 const { app, BrowserWindow, ipcMain } = require('electron')

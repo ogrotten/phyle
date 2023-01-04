@@ -11,10 +11,6 @@
 		filterFiles = [],
 		allTags = []
 
-	const tagfilter = (incoming) => {
-		console.log(`conlog: incoming`, incoming)
-	}
-
 	$: allTags?.sort((a, b) => a?.tag?.localeCompare(b.tag))
 	// $: filterTags = allTags.filter((t) => t?.in)
 
@@ -56,12 +52,19 @@
 	// 	return filterTags.length > 0 ? intersection : files
 	// }
 
-	$: console.log(`LOG..Listing: filterFiles`, filterFiles)
-
-	const moreFilter = async (tag) => {
-		tag.in = true
-		filterTags.push(tag.data)
+	const moreFilter = async (idx) => {
+		allTags[idx].in = true
+		filterTags.push(allTags[idx].data)
 		filterFiles = await window.api.dbFiles.filterFiles(filterTags)
+	}
+
+	const lessFilter = async (tag) => {
+		const idx = allTags.findIndex((e) => e.id === tag.id)
+
+		allTags[idx].in = false
+		filterTags = filterTags.filter((e) => e != allTags[idx].data)
+		if (filterTags?.length < 1) filterFiles = await window.api.getFiles()
+		else filterFiles = window.api.dbFiles.filterFiles(filterTags)
 	}
 
 	onMount(async () => {
@@ -70,35 +73,35 @@
 		allTags = await window.api.dbTags.allTags
 		filterFiles = files
 	})
+
+	$: headerTags = allTags.filter((t) => !t.in)
+	$: selectedTags = allTags.filter((t) => t.in)
 </script>
 
 <div class="card w-full h-full grow flex flex-col  pr-0">
 	<div class="border-b-4 border-neutral-content h-48 mb-4">
 		<div class="flex">
-			{#each allTags.filter((t) => !t.in) as tag (tag.id)}
+			{#each headerTags as tag, idx (tag.id)}
 				<p
 					transition:fade={{ duration: 100 }}
 					class="tag cursor-pointer"
-					on:click={() => moreFilter(tag)}
+					on:click={() => moreFilter(idx)}
 				>
-					<!-- on:click={async () => {
-						tag.in = true
-						filterFiles = await window.api.dbFiles.filterFiles(tag.data)
-					}} -->
 					{tag.tag}
 				</p>
 			{/each}
 		</div>
 		<div class="flex border-t-2 border-neutral-content">
-			{#each allTags.filter((t) => t?.in) as tag (tag.id)}
+			{#each selectedTags as tag (tag.id)}
 				<p
 					transition:fade={{ duration: 100 }}
 					class="tag cursor-pointer"
-					on:click={async () => {
+					on:click={() => lessFilter(tag)}
+				>
+					<!-- on:click={async () => {
 						tag.in = false
 						filterFiles = await window.api.dbFiles.filterFiles()
-					}}
-				>
+					}} -->
 					{tag.tag}
 				</p>
 			{/each}

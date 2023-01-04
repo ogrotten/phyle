@@ -31,6 +31,7 @@ exports.getFiles = async () => {
 
 exports.filterFiles = async (incoming) => {
 	let terms = incoming.map((item) => `filename ~ "${item}"`).join(' || ')
+	console.log(`conlog: incoming, terms`, incoming, terms)
 
 	return await pb
 		.collection('files')

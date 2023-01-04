@@ -4,48 +4,21 @@
 	import { External } from '@steeze-ui/css-gg'
 	import { fade } from 'svelte/transition'
 
-	export let dataObj
-	let { file, allTags } = dataObj
-
-	let tags = []
-
-	const tagfilter = (incoming) => {
-		console.log(`conlog: incoming`, incoming)
-	}
-
-	$: tags?.sort((a, b) => a?.name?.localeCompare(b.name))
-	$: filterTags = tags?.filter((t) => t?.in)
+	export let file, allTags
 
 	const tagIdsToText = (list) => {
-		if (!allTags || !tags) return
+		if (!allTags) return
+		console.log(`conlog: list`, list)
 		let frank = allTags.filter((e) => list.includes(e.id))
 		return frank
 	}
 
-	const filesVsTags = () => {
-		let tempTags = [],
-			tempFileTags = []
-		tempTags = filterTags.map((e) => e.name)
-		tempFileTags = filterFiles.map((e) => e.tags_auto)
-
-		const intersection = tempTags.filter((tag) => {
-			return tempFileTags.map((file, idx) => {
-				if (file.includes(tag)) return idx
-			})
-		})
-
-		console.log(`conlog: intersection`, intersection)
-
-		return filterTags.length > 0 ? intersection : files
-	}
-
 	onMount(async () => {
-		files = await window.api.getFiles()
-		tags = await window.api.getTags()
 		allTags = await window.api.dbTags.allTags
-		filterFiles = files
 	})
-	$: tags = tagIdsToText(file?.tags_auto)
+
+	$: tags = tagIdsToText(file?.tags_auto) //
+		.sort((a, b) => a?.tag?.localeCompare(b.tag))
 	$: console.log(`conlog: tags`, tags)
 </script>
 
@@ -55,13 +28,11 @@
 		<Icon src={External} class="text-gray-50 h-4 w-4" />
 	</p>
 	<div class="flex">
-		{#if file?.tags_auto != '0' && tags}
-			{#each tags as tag}
-				<p class="tag">
-					{tag.tag}
-				</p>
-			{/each}
-		{/if}
+		{#each tags as tag}
+			<p class="tag">
+				{tag.tag}
+			</p>
+		{/each}
 	</div>
 </li>
 

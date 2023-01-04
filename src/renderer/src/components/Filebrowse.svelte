@@ -6,11 +6,11 @@
 	import { Close } from '@steeze-ui/css-gg'
 
 	const dev = false
-	// let directory = '/Music',
-	let directory = '/sounds',
+	let directory = '/Music',
+		// let directory = '/sounds',
 		volumes = [],
-		// drive = 'G:',
-		drive = 'C:',
+		drive = 'G:',
+		// drive = 'C:',
 		cwd
 
 	function navigate(path) {

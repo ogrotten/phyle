@@ -7,17 +7,16 @@
 	import { fade } from 'svelte/transition'
 
 	let files = [],
-		tags = [],
 		filterTags = [],
 		filterFiles = [],
-		allTags
+		allTags = []
 
 	const tagfilter = (incoming) => {
 		console.log(`conlog: incoming`, incoming)
 	}
 
-	$: tags?.sort((a, b) => a?.name?.localeCompare(b.name))
-	$: filterTags = tags.filter((t) => t?.in)
+	$: allTags?.sort((a, b) => a?.tag?.localeCompare(b.tag))
+	$: filterTags = allTags.filter((t) => t?.in)
 
 	const tagIdsToText = (list) => {
 		if (!allTags) return
@@ -25,7 +24,7 @@
 	}
 
 	// $: console.log(`conlog: filterFiles`, filterFiles)
-	$: filterFiles = tags?.filter((element) =>
+	$: filterFiles = allTags?.filter((element) =>
 		files?.tags_auto?.includes(element.id)
 	)
 
@@ -66,7 +65,7 @@
 
 	onMount(async () => {
 		files = await window.api.getFiles()
-		tags = await window.api.getTags()
+		// tags = await window.api.getTags()
 		allTags = await window.api.dbTags.allTags
 		filterFiles = files
 	})
@@ -75,7 +74,7 @@
 <div class="card w-full h-full grow flex flex-col  pr-0">
 	<div class="border-b-4 border-neutral-content h-48 mb-4">
 		<div class="flex">
-			{#each tags.filter((t) => !t.in) as tag, idx (idx)}
+			{#each allTags.filter((t) => !t.in) as tag (tag.id)}
 				<p
 					transition:fade
 					class="tag cursor-pointer"
@@ -86,23 +85,23 @@
 			{/each}
 		</div>
 		<div class="flex border-t-2 border-neutral-content">
-			{#each tags.filter((t) => t?.in) as tag, idx (tag.name)}
+			{#each allTags.filter((t) => t?.in) as tag (tag.id)}
 				<p
 					transition:fade
 					class="tag cursor-pointer"
 					on:click={() => (tag.in = false)}
 				>
-					{tag.name}
+					{tag.tag}
 				</p>
 			{/each}
 		</div>
 	</div>
 	<ul class="overflow-auto">
-		{#if allTags}
-			{#each filterFiles as file}
-				<ListItem dataObj={{ file, allTags }} />
-			{/each}
-		{/if}
+		<!-- {#if allTags} -->
+		{#each filterFiles as file}
+			<ListItem {file} {allTags} />
+		{/each}
+		<!-- {/if} -->
 	</ul>
 </div>
 

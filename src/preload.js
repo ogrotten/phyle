@@ -71,7 +71,6 @@ contextBridge.exposeInMainWorld('api', {
 	getVolumes,
 	storeFiles: dbFiles.storeFiles,
 	getFiles: dbFiles.getFiles,
-	getTags: dbTags.getTags,
 	dbFiles,
 	dbTags,
 })

@@ -25,7 +25,7 @@
 </script>
 
 <li
-	class="px-6 pb-1 pt-1 hover:bg-base-200 flex flex-row justify-between space-y-1"
+	class="px-6 pb-1 pt-1 even:bg-base-100 flex flex-row justify-between space-y-1"
 >
 	<div class="text-item flex items-center">
 		<p class="item">{file?.filename}</p>

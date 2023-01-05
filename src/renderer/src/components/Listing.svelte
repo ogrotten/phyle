@@ -43,23 +43,23 @@
 </script>
 
 <div class="card w-full h-full grow flex flex-col  pr-0">
-	<div class="border-b-4 border-neutral-content h-48 mb-4">
-		<div class="flex">
+	<div class="border-b-4 border-neutral-content min-h-fit">
+		<div class="flex flex-wrap gap-2 py-4">
 			{#each headerTags as tag (tag.id)}
 				<p
 					transition:fade={{ duration: 100 }}
-					class="tag cursor-pointer"
+					class="tag cursor-pointer mx-0"
 					on:click={() => moreFilter(tag)}
 				>
 					{tag.tag}
 				</p>
 			{/each}
 		</div>
-		<div class="flex border-t-2 border-neutral-content">
+		<div class="border-t-2 border-neutral-content flex flex-wrap gap-2 py-4">
 			{#each selectedTags as tag (tag.id)}
 				<p
 					transition:fade={{ duration: 100 }}
-					class="tag cursor-pointer"
+					class="tag cursor-pointer mx-0"
 					on:click={() => lessFilter(tag)}
 				>
 					<!-- on:click={async () => {

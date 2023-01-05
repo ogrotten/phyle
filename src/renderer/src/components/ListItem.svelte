@@ -25,13 +25,13 @@
 </script>
 
 <li
-	class="px-6 pb-1 pt-1 even:bg-base-100 flex flex-row justify-between space-y-1"
+	class="px-6 pb-1 pt-1 even:bg-gray-100 flex flex-row justify-between space-y-1"
 >
 	<div class="text-item flex items-center">
 		<p class="item">{file?.filename}</p>
 		<Icon src={External} class="text-gray-50 h-4 w-4" />
 	</div>
-	<div class="flex">
+	<div class="flex gap-2">
 		<!-- <p class="text-tag italic font-bold">
 			{#if simple}
 				[{simple}]

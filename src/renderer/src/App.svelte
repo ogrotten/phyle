@@ -5,7 +5,6 @@
 </script>
 
 <div class="flex flex-col w-screen h-screen">
-	<div class="h-16 bg-yellow-300" />
 	<!-- data-theme="business" -->
 	<div
 		data-theme="corporate"

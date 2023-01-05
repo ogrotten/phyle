@@ -80,10 +80,11 @@
 	</div>
 	<div class=" flex flex-row h-full gap-4">
 		{#if selectedTab === 'Tags'}
-			<!--  -->
 			<div
 				class="border h-[95%] w-72 flex flex-col gap-4 relative rounded-t-none rounded-b-lg"
-			/>
+			>
+				<!--  -->
+			</div>
 		{:else if selectedTab === 'Files'}
 			<div
 				class="border h-[95%] w-72 flex flex-col gap-4 relative rounded-t-none rounded-b-lg"

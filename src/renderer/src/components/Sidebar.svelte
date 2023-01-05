@@ -33,6 +33,8 @@
 		console.log(`conlog: william`, william)
 	}
 
+	const clearFiles = () => {}
+
 	const newDrive = (idx) => {
 		drive = volumes[idx]
 		directory = '/'
@@ -89,9 +91,15 @@
 			<div
 				class="border h-[95%] w-72 flex flex-col gap-4 relative rounded-t-none rounded-b-lg"
 			>
-				<div class="flex justify-end">
+				<div class="flex justify-between">
 					<button
-						class="btn btn-accent text-base-100 font-bold text-lg btn-sm w-20 m-4 rounded border-accent-focus"
+						class="btn bg-base-100 text-gray-800 shadow font-bold text-lg btn-sm w-20 m-4 rounded border border-gray-300 hover:bg-gray-100 normal-case"
+						on:click={clearFiles}
+					>
+						ungo
+					</button>
+					<button
+						class="btn bg-green-500 text-gray-800 shadow shadow-green-900 font-bold text-lg btn-sm w-20 m-4 rounded border-green-600 hover:bg-green-400"
 						on:click={search}
 					>
 						Go

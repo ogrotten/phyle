@@ -24,24 +24,22 @@
 	$: simple = tags.map((e) => e.tag).join(', ')
 </script>
 
-<li
-	class="px-6 pb-1 pt-1 even:bg-gray-100 flex flex-row justify-between space-y-1"
->
-	<div class="text-item flex items-center">
+<li class="px-6 pb-1 even:bg-gray-100 flex flex-col justify-between space-y-1">
+	<div class="text-item flex items-center pt-1">
 		<p class="item">{file?.filename}</p>
 		<Icon src={External} class="text-gray-50 h-4 w-4" />
 	</div>
-	<div class="flex gap-2">
-		<!-- <p class="text-tag italic font-bold">
+	<div class="flex gap-x-2">
+		<!-- <div class="italic font-bold pl-4">
 			{#if simple}
-				[{simple}]
+				<p class="text-tag text-secondary">{simple}</p>
 			{:else}
 				<p class="text-tag text-base-300">None</p>
 			{/if}
-		</p> -->
+		</div> -->
 
 		{#each tags as tag}
-			<p class="tag">
+			<p class="tag {tag.type}">
 				{tag.tag}
 			</p>
 		{/each}

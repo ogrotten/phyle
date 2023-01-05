@@ -8,7 +8,7 @@
 	<!-- data-theme="business" -->
 	<div
 		data-theme="corporate"
-		class="p-4 flex flex-row justify-between gap-4 overflow-hidden"
+		class="p-4 flex flex-row justify-between h-full gap-4 overflow-hidden"
 	>
 		<div class="shrink">
 			<Sidebar />

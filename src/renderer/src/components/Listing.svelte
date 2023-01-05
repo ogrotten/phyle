@@ -48,7 +48,7 @@
 			{#each headerTags as tag (tag.id)}
 				<p
 					transition:fade={{ duration: 100 }}
-					class="tag cursor-pointer mx-0"
+					class="tag cursor-pointer mx-0 {tag.type}"
 					on:click={() => moreFilter(tag)}
 				>
 					{tag.tag}
@@ -59,8 +59,9 @@
 			{#each selectedTags as tag (tag.id)}
 				<p
 					transition:fade={{ duration: 100 }}
-					class="tag cursor-pointer mx-0"
+					class="tag cursor-pointer mx-0 {tag.type}"
 					on:click={() => lessFilter(tag)}
+					title={tag.type}
 				>
 					<!-- on:click={async () => {
 						tag.in = false

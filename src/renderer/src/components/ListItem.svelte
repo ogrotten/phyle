@@ -20,14 +20,26 @@
 	$: tags = tagIdsToText(file?.tags_auto) //
 		.sort((a, b) => a?.tag?.localeCompare(b.tag))
 	// $: console.log(`conlog: tags`, tags)
+
+	$: simple = tags.map((e) => e.tag).join(', ')
 </script>
 
-<li class="py-2 pl-4 hover:bg-emerald-300">
-	<p class="font-semibold text-base flex items-center">
-		{file?.filename}
+<li
+	class="px-6 pb-1 pt-1 hover:bg-base-200 flex flex-row justify-between space-y-1"
+>
+	<div class="text-item flex items-center">
+		<p class="item">{file?.filename}</p>
 		<Icon src={External} class="text-gray-50 h-4 w-4" />
-	</p>
+	</div>
 	<div class="flex">
+		<!-- <p class="text-tag italic font-bold">
+			{#if simple}
+				[{simple}]
+			{:else}
+				<p class="text-tag text-base-300">None</p>
+			{/if}
+		</p> -->
+
 		{#each tags as tag}
 			<p class="tag">
 				{tag.tag}
@@ -39,10 +51,6 @@
 <style lang="postcss">
 	.dev * {
 		@apply border border-red-500;
-	}
-
-	.tag {
-		@apply btn-info m-2 rounded-full border border-success px-2 text-sm text-info-content;
 	}
 
 	/* li {

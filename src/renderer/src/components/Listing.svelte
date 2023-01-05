@@ -12,45 +12,6 @@
 		allTags = []
 
 	$: allTags?.sort((a, b) => a?.tag?.localeCompare(b.tag))
-	// $: filterTags = allTags.filter((t) => t?.in)
-
-	// $: console.log(`conlog: filterFiles`, filterFiles)
-	// $: filterFiles = allTags?.filter((element) =>
-	// 	files?.tags_auto?.includes(element.id)
-	// )
-
-	// $: if (files?.length) filterFiles = filesVsTags(filterTags)
-
-	// const filesVsTags = () => {
-	// 	// console.log(`conlog: tags`, filterTags)
-	// 	// console.log(`conlog: files`, files)
-
-	// 	// const intersection = array1.filter(element => array2.includes(element));
-
-	// 	// const intersection = t.filter((tag) =>
-	// 	// 	files.map((file) => file.tags_auto.includes(tag.name))
-	// 	// )
-
-	// 	let tempTags = [],
-	// 		tempFileTags = []
-	// 	tempTags = filterTags.map((e) => e.name)
-	// 	tempFileTags = filterFiles.map((e) => e.tags_auto)
-
-	// 	console.log(`conlog: tags`, tempTags)
-	// 	// console.log(`conlog: files`, tempFileTags)
-
-	// 	const intersection = tempTags.filter((tag) => {
-	// 		// console.log(`conlog: tag`, tag)
-
-	// 		return tempFileTags.map((file, idx) => {
-	// 			if (file.includes(tag)) return idx
-	// 		})
-	// 	})
-
-	// 	console.log(`conlog: intersection`, intersection)
-
-	// 	return filterTags.length > 0 ? intersection : files
-	// }
 	$: console.log(`conlog: filterFiles`, filterFiles)
 
 	const moreFilter = async (tag) => {
@@ -110,7 +71,7 @@
 			{/each}
 		</div>
 	</div>
-	<ul class="overflow-auto">
+	<ul class="overflow-auto divide-y ">
 		<!-- {#if allTags} -->
 		{#each filterFiles as file}
 			<ListItem {file} {allTags} />
@@ -122,10 +83,6 @@
 <style lang="postcss">
 	.dev * {
 		@apply border border-red-500;
-	}
-
-	.tag {
-		@apply btn-info m-2 rounded-full border border-success px-2 text-sm text-info-content;
 	}
 
 	/* li {

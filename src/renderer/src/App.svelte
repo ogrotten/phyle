@@ -6,9 +6,10 @@
 
 <div class="flex flex-col w-screen h-screen">
 	<div class="h-16 bg-yellow-300" />
+	<!-- data-theme="business" -->
 	<div
-		data-theme="winter"
-		class="bg-emerald-200 p-4 flex flex-row justify-between h-full gap-4"
+		data-theme="corporate"
+		class="p-4 flex flex-row justify-between h-full gap-4"
 	>
 		<div class="shrink">
 			<Filebrowse />

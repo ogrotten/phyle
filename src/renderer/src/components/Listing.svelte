@@ -42,7 +42,7 @@
 	$: selectedTags = allTags.filter((t) => t.in)
 </script>
 
-<div class="card w-full h-full grow flex flex-col  pr-0">
+<div class="card w-full h-[95%] grow flex flex-col  pr-0">
 	<div class="border-b-4 border-neutral-content min-h-fit">
 		<div class="flex flex-wrap gap-2 py-4">
 			{#each headerTags as tag (tag.id)}

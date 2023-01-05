@@ -13,6 +13,9 @@
 		// drive = 'C:',
 		cwd
 
+	let selectedTab = 'Files',
+		tabOptions = ['Files', 'Tags']
+
 	function navigate(path) {
 		if (directory === '/') {
 			directory = '/' + path
@@ -64,11 +67,35 @@
 			{/if}
 		</button>
 	</div> -->
-	<div class=" flex flex-row h-full gap-4">
-		{#if showPanel}
-			<div
-				class="bg-neutral-content card p-4 h-full w-72 flex flex-col gap-4 relative"
+	<div class="tabs">
+		{#each tabOptions as tab}
+			<button
+				on:click={() => (selectedTab = tab)}
+				class="tab tab-bordered font-bold uppercase"
+				class:selected={tab === selectedTab}
 			>
+				{tab}
+			</button>
+		{/each}
+	</div>
+	<div class=" flex flex-row h-full gap-4">
+		{#if selectedTab === 'Tags'}
+			<!--  -->
+			<div
+				class="border h-[95%] w-72 flex flex-col gap-4 relative rounded-t-none rounded-b-lg"
+			/>
+		{:else if selectedTab === 'Files'}
+			<div
+				class="border h-[95%] w-72 flex flex-col gap-4 relative rounded-t-none rounded-b-lg"
+			>
+				<div class="flex justify-end">
+					<button
+						class="btn btn-accent text-base-100 font-bold text-lg btn-sm w-20 m-4 rounded border-accent-focus"
+						on:click={search}
+					>
+						Go
+					</button>
+				</div>
 				<!-- transition:slide={{ axis: 'x', duration: 800 }} -->
 				<!-- <button
 					class="h-6 w-6 bg-yellow-300 rounded absolute inset-y-auto right-1"
@@ -154,11 +181,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="flex justify-end">
-					<button class="btn btn-primary btn-sm" on:click={search}>
-						Choose Directory
-					</button>
-				</div>
 			</div>
 		{/if}
 	</div>
@@ -167,6 +189,10 @@
 <style lang="postcss">
 	.dev * {
 		@apply border border-red-500;
+	}
+
+	.selected {
+		@apply tab-active rounded-none bg-primary-content font-bold uppercase;
 	}
 
 	/* li {
